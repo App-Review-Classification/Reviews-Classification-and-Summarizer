@@ -12,10 +12,11 @@ class Amazon:
         self.url = url
         self.driver = None
         self.review_page_url = None
-        self.main_dict = {}
-        self.main_dict["Star"] = []
-        self.main_dict["Summary"] = []
-        self.main_dict["Description"] = []
+        self.main_dict = {
+            "Star": [],
+            "Summary": [],
+            "Description": []
+        }
         self.page_count = 0
     
     def open_link(self):
@@ -67,12 +68,15 @@ class Amazon:
                 print(f"INFO | Fetching reviews from page {self.page_count}")
                 for review in reviews:
                     review_id = review.get_attribute("id")
-                    review_star_xpath = "//*[@id='customer_review-" + str(review_id) + "']/div[2]/a/i/span"
+                    review_star_xpath = "//*[@id='customer_review-" + str(review_id) + "']/div[2]/a/i"
                     review_summary_xpath = "//*[@id='customer_review-" + str(review_id) + "']/div[2]/a/span[2]"
                     review_description_xpath = "//*[@id='customer_review-" + str(review_id) + "']/div[4]/span/span"
 
                     try: 
-                        review_star = review.find_element(By.XPATH, review_star_xpath).text
+                        review_star_ele = review.find_element(By.XPATH, review_star_xpath)
+                        review_star_class = review_star_ele.get_attribute("class") 
+                        review_star_ = review_star_class.split()[-2]
+                        review_star = review_star_.split('-')[-1]
                     except Exception as e:
                         review_star = None
                     
@@ -128,6 +132,7 @@ class Amazon:
                     if(next_page_url):
                         print(f"INFO | Next page found")
                         print(f"INFO | Next page loading...")
+                        print(f"{next_page_url}")
                         self.driver.get(str(next_page_url))
                         print(f"INFO | Next page loaded successfully.")
                     else:
@@ -137,8 +142,8 @@ class Amazon:
                     print("INFO | No page left")
                     break
         
-        except Exception:
-            print("ERROR | Exception occured in get_all_reviews function")
+        except Exception as e:
+            print(f"ERROR | Exception occured in get_all_reviews function \n {e}")
         
         return self.main_dict
         self.close()

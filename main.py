@@ -2,7 +2,7 @@ from src.amazon_webscrapping import Amazon
 import pandas as pd
 
 def main():
-    url = 'https://www.amazon.in/Acer-Premium-Windows-AL15-41-Display/dp/B0CB7S1RTX/ref=sr_1_1_sspa?crid=2OHPBTHGHJLMA&dib=eyJ2IjoiMSJ9.9zhNTtyM6wB18-nU56oobiIA_iHvbszw-zCKLZGEvW5qrNqEtAX6yfYSwYe4H8pURPZVTeXA6cK8xFa_yNDypRetrHBhVEkrSjwfRQe3X7aZsMfe43doKFkIlLO0vvq6ysy9qd398TlGCfEPX8nSqPFlHxk1zOR3nP5GDXl9bugq2iF0g1CJ0OXqqbsmTRHiHrpO0rUXiGEJKmgsywEWPJvtXmEIcXJWG0pkbiugb7w.GYAHtLH-Z4N4CW0abKaAxAdVii5DxsHG1N5y5iXTiag&dib_tag=se&keywords=laptop&qid=1720851014&sprefix=laptop%2Caps%2C254&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1'
+    url = 'https://www.amazon.in/HP-i5-1235U-15-6-inch-graphics-speakers/dp/B0CTKHTNWL/ref=sr_1_4?dib=eyJ2IjoiMSJ9.9zhNTtyM6wB18-nU56oobiIA_iHvbszw-zCKLZGEvW5qrNqEtAX6yfYSwYe4H8pURPZVTeXA6cK8xFa_yNDypRetrHBhVEkrSjwfRQe3X7aZsMfe43doKFkIlLO0vvq6ysy9qd398TlGCfEPX8nSqCf7gIJwIqKoANeOSpzL8dNxRvN4wE79-ZoDQ5AIKuiudxTkGJ5p46io1n4x-QUfI9PdYG7qPhQ9o9Rkb-nOW2k.UcuOKL58ddW5gGa4mLWzXUDeUaTIVr9rLtQ3ZgQwEd0&dib_tag=se&keywords=laptop&qid=1720863278&sr=8-4&th=1'
     amazon_scraper = Amazon(url)
     dict = amazon_scraper.get_all_reviews()
 
