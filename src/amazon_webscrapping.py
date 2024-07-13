@@ -146,7 +146,7 @@ class Amazon:
                     break
         
         except Exception as e:
-            print(f"ERROR | Exception occured in get_all_reviews function \n {e}")
+            print(f"ERROR | Exception occured in get_all_reviews function ")
         
         return self.main_dict
         self.close()

@@ -133,7 +133,7 @@ class Flipkart:
 
             print(f"INFO | Total pages found: {total_pages} ")
 
-            for i in range(1, min(total_pages, 200)):
+            for i in range(1, min(total_pages, 100)):
                 self.page_count = i
 
                 print(f"INFO | Creating URL for {i} page...")
@@ -156,7 +156,7 @@ class Flipkart:
                 self.extract_reviews()
                 
         except Exception as e:
-            print(f"ERROR | Exception occured in get_all_reviews function \n {e}")
+            print(f"ERROR | Exception occured in get_all_reviews function ")
         
         return self.main_dict
         self.close()
