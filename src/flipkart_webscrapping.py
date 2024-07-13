@@ -133,7 +133,7 @@ class Flipkart:
 
             print(f"INFO | Total pages found: {total_pages} ")
 
-            for i in range(1, min(total_pages, 100)):
+            for i in range(1, min(total_pages, 10)):
                 self.page_count = i
 
                 print(f"INFO | Creating URL for {i} page...")

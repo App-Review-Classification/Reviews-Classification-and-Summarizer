@@ -36,7 +36,8 @@ class Prediction:
         
         predicted_categories = np.array(categories)
         print(predicted_categories)
-        actual_values = self.amazon_df['Star'].values
+        actual_values = self.amazon_df['Star'].values.astype(int)
+        print(actual_values)
         accuracy = np.mean(predicted_categories == actual_values)
         print(accuracy)
 
@@ -66,10 +67,11 @@ class Prediction:
                 categories.append(1)
         
         predicted_categories = np.array(categories)
-        actual_values = self.flipkart_df['Star'].values
+        actual_values = self.flipkart_df['Star'].values.astype(int)
+        print(actual_values)
         accuracy = np.mean(predicted_categories == actual_values)
         print(accuracy)
-        
+
         print(f"Accuracy in predicting rating from Flipkart: {accuracy * 100:.2f}%")
         print(f"Average Star rating on Flipkart: {np.mean(predicted_categories)}")
 
