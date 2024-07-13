@@ -1,3 +1,8 @@
 pandas
 selenium==4.22.0
 requests
+tensorflow
+scikit-learn
+matplotlib
+seaborn
+nltk
