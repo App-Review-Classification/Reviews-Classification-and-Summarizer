@@ -18,6 +18,7 @@ class PreProcessor:
         self.stopwords = None
         self.porter_stemmer = None
         self.wn_lemma = None
+        self.testing_padded = None
     
     def dropping_null(self):
         self.df.dropna(axis=0, inplace=True)
@@ -63,7 +64,7 @@ class PreProcessor:
         return re.sub(r"[^a-zA-Z0-9?!.,]+", ' ', x)
     
     def settingStopwords(self):
-        nltk.download('stopwords')
+        # nltk.download('stopwords')
         self.stopwords = set(stopwords.words("english"))
         self.porter_stemmer = nltk.PorterStemmer()
 
@@ -111,4 +112,6 @@ class PreProcessor:
         testing_padded = pad_sequences(testing_sequences, maxlen=max_length, padding=padding_type, 
                                        truncating=trunc_type)
         
+        self.testing_padded = testing_padded
         return testing_padded
+        
