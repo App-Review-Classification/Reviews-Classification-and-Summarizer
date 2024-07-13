@@ -22,6 +22,10 @@ class Flipkart:
     def open_link(self):
         options = Options()
         options.page_load_strategy = 'normal'
+        options.add_argument('--headless')
+        options.add_argument('--disable-gpu')
+        options.add_argument('--no-sandbox')
+        self.driver = webdriver.Chrome(options=options)
         self.driver = webdriver.Chrome(options=options)
         self.driver.get(self.url)
         # self.driver.implicitly_wait(60)
