@@ -7,3 +7,5 @@ matplotlib
 seaborn
 nltk
 stopwords
+transformers
+tf_keras==2.16.0
