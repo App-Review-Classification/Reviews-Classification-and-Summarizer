@@ -1,6 +1,5 @@
 # Reviews-Classification-and-Summarizer
 Give link to get product summary
-### Project Title: Advanced Sentiment Analysis of User Reviews
 
 ---
 
